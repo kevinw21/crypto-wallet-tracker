@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  postgresql_wallet:
+    image: mdillon/postgis:10-alpine
+    container_name: "postgresql_wallet"
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "sullivankw"
+    volumes:
+      - db-data-postgresql_wallet:/var/lib/postgresql/data
+    ports:
+      - "29029:5432"
+volumes:
+  db-data-postgresql_wallet:
