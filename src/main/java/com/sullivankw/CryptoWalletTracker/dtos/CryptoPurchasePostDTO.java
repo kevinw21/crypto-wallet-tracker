@@ -1,16 +1,12 @@
-package com.sullivankw.CryptoWalletTracker.models;
+package com.sullivankw.CryptoWalletTracker.dtos;
 
-import javax.persistence.Entity;
+import com.sullivankw.CryptoWalletTracker.models.Exchange;
+import com.sullivankw.CryptoWalletTracker.models.Wallet;
+
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import java.util.UUID;
 
-@Entity
-public class CryptoEntity {
-
-    @Id
-    private UUID uuid;
+public class CryptoPurchasePostDTO {
 
     private String name;
 
@@ -25,25 +21,6 @@ public class CryptoEntity {
     private double averagePrice;
 
     private double coins;
-
-    public CryptoEntity(String name, Exchange purchasedExchange, Wallet currentWallet,
-                        double totalValue, double averagePrice, double coins) {
-        this.uuid = UUID.randomUUID();
-        this.name = name;
-        this.purchasedExchange = purchasedExchange;
-        this.currentWallet = currentWallet;
-        this.totalValue = totalValue;
-        this.averagePrice = averagePrice;
-        this.coins = coins;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
 
     public String getName() {
         return name;
