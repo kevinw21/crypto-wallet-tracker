@@ -14,13 +14,15 @@ public class CryptoPurchasePostDTO {
     private Exchange purchasedExchange;
 
     @Enumerated(EnumType.STRING)
-    private Wallet currentWallet;
+    private Wallet wallet;
 
-    private double totalValue;
-
-    private double averagePrice;
+    private double value;
 
     private double coins;
+
+    private Double fee;
+
+    private String symbol;
 
     public String getName() {
         return name;
@@ -38,28 +40,20 @@ public class CryptoPurchasePostDTO {
         this.purchasedExchange = purchasedExchange;
     }
 
-    public Wallet getCurrentWallet() {
-        return currentWallet;
+    public Wallet getWallet() {
+        return wallet;
     }
 
-    public void setCurrentWallet(Wallet currentWallet) {
-        this.currentWallet = currentWallet;
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
     }
 
-    public double getTotalValue() {
-        return totalValue;
+    public double getValue() {
+        return value;
     }
 
-    public void setTotalValue(double totalValue) {
-        this.totalValue = totalValue;
-    }
-
-    public double getAveragePrice() {
-        return averagePrice;
-    }
-
-    public void setAveragePrice(double averagePrice) {
-        this.averagePrice = averagePrice;
+    public void setValue(double value) {
+        this.value = value;
     }
 
     public double getCoins() {
@@ -68,5 +62,21 @@ public class CryptoPurchasePostDTO {
 
     public void setCoins(double coins) {
         this.coins = coins;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    public void setFee(Double fee) {
+        this.fee = fee;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 }

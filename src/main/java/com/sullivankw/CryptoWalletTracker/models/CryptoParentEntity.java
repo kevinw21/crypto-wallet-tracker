@@ -9,7 +9,7 @@ import java.util.UUID;
 public class CryptoParentEntity {
 
     @Id
-    private UUID uuid = UUID.randomUUID();
+    private String uuid = UUID.randomUUID().toString();
 
     private String name;
 
@@ -20,14 +20,27 @@ public class CryptoParentEntity {
 
     private double averagePrice;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private double totalValue;
+
+    private double totalCoins;
+
+    private double totalFees;
+
+    @OneToMany(mappedBy = "cryptoParentEntity",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CryptoPurchaseEntity> purchases = new ArrayList<>();
 
-
-    public UUID getUuid() {
-        return uuid;
+    public CryptoParentEntity(String name, String symbol, Wallet wallet) {
+        this.name = name;
+        this.symbol = symbol;
+        this.wallet = wallet;
     }
 
+    public CryptoParentEntity() {
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
 
     public String getName() {
         return name;
@@ -66,9 +79,35 @@ public class CryptoParentEntity {
     }
 
     public void setPurchases(List<CryptoPurchaseEntity> purchases) {
-        this.purchases.clear();
-        this.purchases.addAll(purchases);
+        this.purchases = purchases;
     }
 
-    //calculate property for totals
+    public void addPurchase(CryptoPurchaseEntity cryptoPurchaseEntity)  {
+        this.getPurchases().add(cryptoPurchaseEntity);
+        cryptoPurchaseEntity.setCryptoParentEntity(this);
+    }
+
+    public double getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(double totalValue) {
+        this.totalValue = totalValue;
+    }
+
+    public double getTotalCoins() {
+        return totalCoins;
+    }
+
+    public void setTotalCoins(double totalCoins) {
+        this.totalCoins = totalCoins;
+    }
+
+    public double getTotalFees() {
+        return totalFees;
+    }
+
+    public void setTotalFees(double totalFees) {
+        this.totalFees = totalFees;
+    }
 }

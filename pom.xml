@@ -67,15 +67,10 @@
         </dependency>
 
         <dependency>
-
             <!-- workaround for https://github.com/springfox/springfox/issues/2620 -->
-
             <groupId>io.swagger</groupId>
-
             <artifactId>swagger-annotations</artifactId>
-
             <version>1.5.22</version>
-
         </dependency>
 
         <dependency>
@@ -93,21 +88,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>converter-jackson</artifactId>
-            <version>2.9.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>converter-scalars</artifactId>
-            <version>2.9.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>retrofit</artifactId>
-            <version>2.9.0</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>

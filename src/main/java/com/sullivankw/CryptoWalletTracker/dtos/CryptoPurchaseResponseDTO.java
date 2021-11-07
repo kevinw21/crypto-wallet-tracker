@@ -1,12 +1,12 @@
-package com.sullivankw.CryptoWalletTracker.models;
+package com.sullivankw.CryptoWalletTracker.dtos;
 
-import javax.persistence.*;
-import java.util.UUID;
+import com.sullivankw.CryptoWalletTracker.models.Exchange;
 
-@Entity
-public class CryptoPurchaseEntity {
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
-    @Id
+public class CryptoPurchaseResponseDTO {
+
     private String uuid;
 
     @Enumerated(EnumType.STRING)
@@ -16,23 +16,18 @@ public class CryptoPurchaseEntity {
 
     private double coins;
 
+    private Double fee;
+
     private double averagePrice;
 
-    private double fee;
-
-    @ManyToOne(fetch = FetchType.LAZY) //todo maybe wrong fetch
-    private CryptoParentEntity cryptoParentEntity;
-
-    public CryptoPurchaseEntity(Exchange purchasedExchange, double value, double coins, double fee) {
-        this.uuid = UUID.randomUUID().toString();
+    public CryptoPurchaseResponseDTO(String uuid, Exchange purchasedExchange, double value,
+                                     double coins, Double fee, double averagePrice) {
+        this.uuid = uuid;
         this.purchasedExchange = purchasedExchange;
         this.value = value;
         this.coins = coins;
         this.fee = fee;
-        this.averagePrice = this.value / this.coins;
-    }
-
-    public CryptoPurchaseEntity() {
+        this.averagePrice = averagePrice;
     }
 
     public String getUuid() {
@@ -41,6 +36,10 @@ public class CryptoPurchaseEntity {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    public void setFee(Double fee) {
+        this.fee = fee;
     }
 
     public Exchange getPurchasedExchange() {
@@ -67,12 +66,12 @@ public class CryptoPurchaseEntity {
         this.coins = coins;
     }
 
-    public CryptoParentEntity getCryptoParentEntity() {
-        return cryptoParentEntity;
+    public double getFee() {
+        return fee;
     }
 
-    public void setCryptoParentEntity(CryptoParentEntity cryptoParentEntity) {
-        this.cryptoParentEntity = cryptoParentEntity;
+    public void setFee(double fee) {
+        this.fee = fee;
     }
 
     public double getAveragePrice() {
@@ -81,13 +80,5 @@ public class CryptoPurchaseEntity {
 
     public void setAveragePrice(double averagePrice) {
         this.averagePrice = averagePrice;
-    }
-
-    public double getFee() {
-        return fee;
-    }
-
-    public void setFee(double fee) {
-        this.fee = fee;
     }
 }
