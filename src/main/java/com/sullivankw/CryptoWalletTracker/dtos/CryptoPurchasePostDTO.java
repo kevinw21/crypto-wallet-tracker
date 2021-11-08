@@ -77,6 +77,6 @@ public class CryptoPurchasePostDTO {
     }
 
     public void setSymbol(String symbol) {
-        this.symbol = symbol;
+        this.symbol = symbol.toUpperCase();
     }
 }
