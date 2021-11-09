@@ -4,6 +4,7 @@ import com.sullivankw.CryptoWalletTracker.dtos.CryptoPurchasePostDTO;
 import com.sullivankw.CryptoWalletTracker.dtos.CryptoPurchaseResponseDTO;
 import com.sullivankw.CryptoWalletTracker.dtos.SingleCryptoInWalletSummaryDTO;
 import com.sullivankw.CryptoWalletTracker.dtos.TotalCryptoPurchaseValueResponseDTO;
+import com.sullivankw.CryptoWalletTracker.dtos.coinbase.CoinbaseOrderDTO;
 import com.sullivankw.CryptoWalletTracker.models.CryptoParentEntity;
 import com.sullivankw.CryptoWalletTracker.models.CryptoPurchaseEntity;
 import org.modelmapper.ModelMapper;
